@@ -1,0 +1,30 @@
+# 비밀 값 — API 키는 저장소에 올리지 않는다
+.env
+.env.*
+!.env.example
+*.key
+*_key.txt
+*_api_key*
+secrets/
+.streamlit/secrets.toml
+
+# 회사 자료를 로컬에서만 돌릴 때 두는 자리 — 절대 올리지 않는다
+private/
+output_private/
+
+# 파이썬
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# 편집기·OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# 수집 중간 파일
+data/_cache/

@@ -1,0 +1,38 @@
+{
+  "model": {
+    "provider_note": "모델 이름은 .env 의 DR_MODEL / DR_WRITER_MODEL 이 있으면 그 값을 쓴다. init_chat_model 형식(예: openai:gpt-5.6-luna, anthropic:claude-sonnet-5-5).",
+    "planner": "openai:gpt-5.6-terra",
+    "researcher": "openai:gpt-5.6-luna",
+    "writer": "openai:gpt-5.6-terra",
+    "context_window_tokens": 400000,
+    "temperature": 0.2
+  },
+  "corpus": {
+    "target_window_multiple": 1.2,
+    "max_docs": 220,
+    "min_chars": 1500,
+    "candidate_pool": 400
+  },
+  "sections": {
+    "n_sections": 5,
+    "budget_chars_per_section": 24000,
+    "max_rounds": 2,
+    "max_start_docs": 3,
+    "max_follow_docs": 4
+  },
+  "roles": [
+    {"key": "regime", "name": "제도·조약 담당", "focus": "아포스티유 협약, 영사확인(legalization), 협약 가입국·비가입국 구분, 인증 기관"},
+    {"key": "notary", "name": "공증 담당", "focus": "공증인의 종류(라틴·영미), 공증 행위(인증, 서명 확인, 선서), 전자·원격 공증"},
+    {"key": "translation", "name": "번역 인증 담당", "focus": "공인 번역, 선서 번역사, 번역 공증, 번역문 인증 방식의 나라별 차이"},
+    {"key": "documents", "name": "서류 종류 담당", "focus": "출생·혼인·사망 증명서, 범죄경력 증명, 학위·성적 증명, 법인 서류 등 서류별 특성"},
+    {"key": "country", "name": "나라별 제도 담당", "focus": "가족관계등록·호적(koseki)·호구(hukou)·주민등록 등 나라마다 다른 신분 기록 체계"},
+    {"key": "procedure", "name": "절차·위임 담당", "focus": "진술서(affidavit), 법정 선언, 위임장, 대리 제출과 그 인증 경로"}
+  ],
+  "switches": {
+    "use_planner_assignment": true,
+    "tell_other_zones": true,
+    "isolate_context": true,
+    "use_gap_check": true,
+    "keep_better_draft": true
+  }
+}

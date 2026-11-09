@@ -1,0 +1,8 @@
+langgraph>=1.0
+langchain>=1.0
+langchain-openai
+python-dotenv
+requests
+tiktoken
+streamlit
+# Claude로 바꿀 때: langchain-anthropic
