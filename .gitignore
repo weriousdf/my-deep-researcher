@@ -28,3 +28,9 @@ desktop.ini
 
 # 수집 중간 파일
 data/_cache/
+
+# 가짜 모델 시험 결과
+output/_fake/
+
+# 로컬 도구 설정
+.claude/

@@ -50,6 +50,21 @@ SEEDS = [
     "Family register", "Koseki", "Hukou", "Resident registration (South Korea)",
     "Police certificate", "Criminal record", "Diploma", "Transcript (education)",
     "Certificate of incorporation", "Diplomatic mission", "Consul (representative)",
+    # 2차 추가(모델 창이 105만 토큰이라 코퍼스를 늘리면서, 업무와 가까운 문서로 채우려고 넣음)
+    # 나라별 신분·여행 서류
+    "Identity document", "Travel document", "Visa (document)", "Citizenship", "Permanent residency", "Work permit",
+    "South Korean passport", "Japanese passport", "Chinese passport", "United States passport", "British passport",
+    "Indian passport", "Philippine passport", "Vietnamese passport", "Resident registration number",
+    "Individual Number", "Resident Identity Card", "Aadhaar", "Social Security number", "Real ID Act",
+    "Driver's license", "Medical certificate",
+    # 상업·법인 서류
+    "Certificate of origin", "Commercial invoice", "Articles of incorporation", "Memorandum of association",
+    # 관련 협약·전자 서명
+    "Vienna Convention on Consular Relations", "Vienna Convention on Diplomatic Relations",
+    "Hague Service Convention", "Hague Adoption Convention", "Hague Abduction Convention",
+    "Electronic signature", "eIDAS",
+    # 학력 인정
+    "Credential evaluation", "Educational accreditation", "Lisbon Recognition Convention", "Bologna Process",
 ]
 
 CORE_WORDS = re.compile(

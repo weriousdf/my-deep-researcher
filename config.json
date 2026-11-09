@@ -1,38 +1,79 @@
 {
   "model": {
-    "provider_note": "모델 이름은 .env 의 DR_MODEL / DR_WRITER_MODEL 이 있으면 그 값을 쓴다. init_chat_model 형식(예: openai:gpt-5.6-luna, anthropic:claude-sonnet-5-5).",
-    "planner": "openai:gpt-5.6-terra",
-    "researcher": "openai:gpt-5.6-luna",
-    "writer": "openai:gpt-5.6-terra",
-    "context_window_tokens": 400000,
-    "temperature": 0.2
+    "note": "세 역할 모두 같은 모델을 쓴다(대조군과 모델을 맞추기 위해). .env 의 DR_PLANNER_MODEL·DR_RESEARCHER_MODEL·DR_WRITER_MODEL 로 바꿀 수 있다. init_chat_model 형식(예: gpt-5.6-luna, anthropic:claude-sonnet-5-5).",
+    "planner": "gpt-5.6-luna",
+    "researcher": "gpt-5.6-luna",
+    "writer": "gpt-5.6-luna",
+    "temperature": null,
+    "reasoning_effort": "low",
+    "context_window_tokens": 1050000,
+    "context_window_note": "gpt-5.6-luna·terra 공식 문서 기준 1,050,000 토큰(최대 입력 922,000). 2026-11-09 확인"
   },
   "corpus": {
-    "target_window_multiple": 1.2,
-    "max_docs": 220,
+    "target_window_multiple": 1.15,
+    "max_docs": 600,
     "min_chars": 1500,
-    "candidate_pool": 400
+    "candidate_pool": 1200
   },
   "sections": {
-    "n_sections": 5,
-    "budget_chars_per_section": 24000,
+    "n_sections_max": 5,
+    "total_read_budget_chars": 120000,
+    "reserve_ratio": 0.2,
+    "per_doc_cap_chars": 6000,
     "max_rounds": 2,
     "max_start_docs": 3,
-    "max_follow_docs": 4
+    "max_follow_docs": 4,
+    "max_candidates_shown": 25,
+    "gap_min_valid_citations": 3,
+    "gap_min_draft_chars": 800,
+    "keep_new_if_len_ratio": 0.7,
+    "note": "총 읽기 예산(원문 글자 수)은 대조군과 같다. 1바퀴에 (1-reserve)를 절 수로 나눠 주고, 남긴 reserve 로 부족 신고 절만 다시 보낸다."
   },
   "roles": [
-    {"key": "regime", "name": "제도·조약 담당", "focus": "아포스티유 협약, 영사확인(legalization), 협약 가입국·비가입국 구분, 인증 기관"},
-    {"key": "notary", "name": "공증 담당", "focus": "공증인의 종류(라틴·영미), 공증 행위(인증, 서명 확인, 선서), 전자·원격 공증"},
-    {"key": "translation", "name": "번역 인증 담당", "focus": "공인 번역, 선서 번역사, 번역 공증, 번역문 인증 방식의 나라별 차이"},
-    {"key": "documents", "name": "서류 종류 담당", "focus": "출생·혼인·사망 증명서, 범죄경력 증명, 학위·성적 증명, 법인 서류 등 서류별 특성"},
-    {"key": "country", "name": "나라별 제도 담당", "focus": "가족관계등록·호적(koseki)·호구(hukou)·주민등록 등 나라마다 다른 신분 기록 체계"},
-    {"key": "procedure", "name": "절차·위임 담당", "focus": "진술서(affidavit), 법정 선언, 위임장, 대리 제출과 그 인증 경로"}
+    {
+      "key": "regime",
+      "name": "제도·조약 담당",
+      "focus": "아포스티유 협약, 영사확인(legalization), 협약 가입국·비가입국 구분, 인증 기관"
+    },
+    {
+      "key": "notary",
+      "name": "공증 담당",
+      "focus": "공증인의 종류(라틴·영미), 공증 행위(인증, 서명 확인, 선서), 전자·원격 공증"
+    },
+    {
+      "key": "translation",
+      "name": "번역 인증 담당",
+      "focus": "공인 번역, 선서 번역사, 번역 공증, 번역문 인증 방식의 나라별 차이"
+    },
+    {
+      "key": "documents",
+      "name": "서류 종류 담당",
+      "focus": "출생·혼인·사망 증명서, 범죄경력 증명, 학위·성적 증명, 법인 서류 등 서류별 특성"
+    },
+    {
+      "key": "country",
+      "name": "나라별 제도 담당",
+      "focus": "가족관계등록·호적(koseki)·호구(hukou)·주민등록 등 나라마다 다른 신분 기록 체계"
+    },
+    {
+      "key": "procedure",
+      "name": "절차·위임 담당",
+      "focus": "진술서(affidavit), 법정 선언, 위임장, 대리 제출과 그 인증 경로"
+    }
   ],
   "switches": {
     "use_planner_assignment": true,
     "tell_other_zones": true,
-    "isolate_context": true,
     "use_gap_check": true,
     "keep_better_draft": true
+  },
+  "switch_notes": {
+    "use_planner_assignment": "끄면 기획이 고른 시작 자료를 버리고, 각 리서처가 검색어로 시작 자료를 찾는다",
+    "tell_other_zones": "끄면 다른 절의 제목·시작 자료를 알려 주지 않고, 후보에서 남의 시작 자료를 빼지도 않는다",
+    "use_gap_check": "끄면 부족 신고가 있어도 다시 보내지 않는다(1바퀴로 끝)",
+    "keep_better_draft": "끄면 다시 보낸 절의 두 번째 원고가 무조건 첫 원고를 덮어쓴다"
+  },
+  "parallel": {
+    "run_workers": 4
   }
 }
