@@ -27,11 +27,12 @@ METRICS = {
     "budget_use":        ("signal", "대조군 공정성", "읽은 원문 글자 / 총 읽기 예산 — 두 시스템이 예산을 비슷하게 썼는가"),
     "gaps_left":         ("signal", "점검·재파견", "마지막 원고에도 부족 표시가 남은 절 수"),
     "planner_invalid_ids": ("signal", "기획", "기획이 내놓은 시작 자료 가운데 코퍼스에 없거나 다른 절과 겹쳐 코드가 걸러 낸 id 수"),
-    "alarm_fabricated_quotes": ("alarm", "서브에이전트 쓰기", "읽은 문서를 가리키지만 따옴표 문구가 읽은 문단에 없는 인용 수"),
+    "quote_elided":      ("signal", "서브에이전트 쓰기", "따옴표 문구의 단어는 원문에 순서대로 있으나 중간을 빼고 옮긴 인용 수(근거는 맞고 형식만 어김)"),
+    "alarm_fabricated_quotes": ("alarm", "서브에이전트 쓰기", "읽은 문서를 가리키지만 따옴표 문구가 읽은 문단에 없는 인용 수(말줄임도 아님)"),
     "alarm_unread_citations":  ("alarm", "격리", "그 에이전트가 읽지 않은 문서를 가리키는 인용 수"),
     "alarm_malformed_citations": ("alarm", "서브에이전트 쓰기", "형식이 틀린 인용 수([d012] 처럼 문구가 없는 것)"),
     "alarm_draft_regression":  ("alarm", "두 번째 원고 처리", "재파견 뒤 최종 원고가 그 절의 앞 원고보다 확인 인용이 적은 절 수"),
-    "alarm_source_leak":       ("alarm", "격리", "코디네이터에게 올라간 글(원고)에 원문 12단어 연속이 인용 밖에서 나온 횟수"),
+    "alarm_source_leak":       ("alarm", "격리", "코디네이터에게 올라간 글(원고)에 원문 20단어 연속이 인용 밖에서 나온 횟수(고유명사 정식 명칭 정도는 걸리지 않게 20단어)"),
     "alarm_over_budget":       ("alarm", "예산", "읽기 예산을 넘겨 읽은 글자 수"),
 }
 DROPPED = {
@@ -60,11 +61,11 @@ def compute(rec):
         sreads = _section_reads(rec)
         reads = [r for a in rec["attempts"] for r in a["read"]]
         finals = {int(k): rec["attempts"][v] for k, v in rec["chosen"].items()}
-        cites = {"n": 0, "valid": 0, "fabricated": 0, "unread": 0, "malformed": 0, "valid_docs": set()}
+        cites = {"n": 0, "valid": 0, "elided": 0, "fabricated": 0, "unread": 0, "malformed": 0, "valid_docs": set()}
         body_chars = 0
         for sec, a in finals.items():
             cr = C.citation_report(a["draft"], sreads.get(sec, []))
-            for k in ("n", "valid", "fabricated", "unread", "malformed"):
+            for k in ("n", "valid", "elided", "fabricated", "unread", "malformed"):
                 cites[k] += cr[k]
             cites["valid_docs"] |= set(cr["valid_docs"])
             body_chars += len(_strip_cites(a["draft"]))
@@ -108,7 +109,7 @@ def compute(rec):
         reads = rec["read"]
         pids = [r["pid"] for r in reads]
         cr = C.citation_report(rec["report_raw"], pids)
-        cites = {k: cr[k] for k in ("n", "valid", "fabricated", "unread", "malformed")}
+        cites = {k: cr[k] for k in ("n", "valid", "elided", "fabricated", "unread", "malformed")}
         cites["valid_docs"] = set(cr["valid_docs"])
         body_chars = len(_strip_cites(rec["report_raw"]))
         m["section_overlap"] = None
@@ -136,6 +137,7 @@ def compute(rec):
     m["report_chars"] = len(rec["report_raw"])
     m["body_chars"] = body_chars
     m["cite_density"] = round(cites["valid"] / body_chars * 1000, 2) if body_chars else 0.0
+    m["quote_elided"] = cites["elided"]
     m["alarm_fabricated_quotes"] = cites["fabricated"]
     m["alarm_unread_citations"] = cites["unread"]
     m["alarm_malformed_citations"] = cites["malformed"]

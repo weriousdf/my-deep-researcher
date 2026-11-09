@@ -222,7 +222,7 @@ def render_passages(ps):
 
 
 # ───────────────────────── 인용 ─────────────────────────
-CITE = re.compile(r"\[(d\d{3})\s*[:,]?\s*[\"“]([^\]\n]{2,300}?)[\"”]\s*\]")   # 문구 안 큰따옴표 허용
+CITE = re.compile(r"\[(d\d{3})\s*[:,]?\s*[\"“]([^\n]{2,300}?)[\"”]\s*\]")   # 문구 안 큰따옴표·대괄호 허용
 CITE_LOOSE = re.compile(r"\[(d\d{3})[^\]]*\]")
 
 
@@ -240,32 +240,55 @@ def parse_citations(md):
     return good, loose
 
 
-def check_quote(doc_id, quote, read_pids):
-    """따옴표 문구가 그 에이전트가 실제로 읽은 문단(같은 문서)에 있는가."""
-    q = norm(quote)
-    if len(q) < 4:
+def _in_order(qw, tw):
+    """문구 단어가 원문에 순서대로, 너무 흩어지지 않게(문구 길이의 2배+3 안) 들어 있는가 — 말줄임 판정."""
+    if not qw:
         return False
-    ix = index()
-    for pid in read_pids:
-        if pid.startswith(doc_id + "#") and q in norm(ix.by_pid[pid]["text"]):
+    limit = 2 * len(qw) + 3
+    for i, w in enumerate(tw):
+        if w != qw[0]:
+            continue
+        k, j = 1, i + 1
+        while k < len(qw) and j < len(tw) and j - i < limit:
+            if tw[j] == qw[k]:
+                k += 1
+            j += 1
+        if k == len(qw):
             return True
     return False
+
+
+def check_quote(doc_id, quote, read_pids):
+    """따옴표 문구를 그 에이전트가 실제로 읽은 같은 문서의 문단과 대조한다.
+    exact  : 글자 그대로 있다
+    elided : 단어는 순서대로 있지만 중간 낱말을 뺐다(말줄임) — 근거는 맞지만 형식 위반
+    none   : 없다(지어낸 인용으로 본다)"""
+    q = norm(quote)
+    if len(q) < 4:
+        return "none"
+    ix = index()
+    texts = [norm(ix.by_pid[pid]["text"]) for pid in read_pids if pid.startswith(doc_id + "#")]
+    if any(q in t for t in texts):
+        return "exact"
+    qw = q.split()
+    if any(_in_order(qw, t.split()) for t in texts):
+        return "elided"
+    return "none"
 
 
 def citation_report(md, read_pids):
     good, loose = parse_citations(md)
     read_docs = {p.split("#")[0] for p in read_pids}
-    valid, fabricated, unread = [], [], []
+    valid, elided, fabricated, unread = [], [], [], []
     for doc, quote, pos in good:
         if doc not in read_docs:
             unread.append((doc, quote))
-        elif check_quote(doc, quote, read_pids):
-            valid.append((doc, quote))
-        else:
-            fabricated.append((doc, quote))
-    return {"n": len(good), "valid": len(valid), "fabricated": len(fabricated), "unread": len(unread),
-            "malformed": len(loose), "valid_docs": sorted({d for d, _ in valid}),
-            "fabricated_list": fabricated[:20], "unread_list": unread[:20]}
+            continue
+        v = check_quote(doc, quote, read_pids)
+        (valid if v == "exact" else elided if v == "elided" else fabricated).append((doc, quote))
+    return {"n": len(good), "valid": len(valid), "elided": len(elided), "fabricated": len(fabricated),
+            "unread": len(unread), "malformed": len(loose), "valid_docs": sorted({d for d, _ in valid}),
+            "elided_list": elided[:20], "fabricated_list": fabricated[:20], "unread_list": unread[:20]}
 
 
 # ───────────────────────── 모델 호출 ─────────────────────────
@@ -316,7 +339,7 @@ def ask(model, cfg, system, user, schema=None, log=None, who=""):
     return out, rec
 
 
-def shingles(text, n=12):
+def shingles(text, n=20):
     w = norm(text).split()
     return {" ".join(w[i:i + n]) for i in range(0, max(len(w) - n + 1, 0))}
 

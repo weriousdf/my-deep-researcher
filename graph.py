@@ -217,9 +217,9 @@ def researcher_node(p: dict):
         cap = min(sc["per_doc_cap_chars"], max(int(first_share / max(len(start), 1)), 1500))
         passages += reader.read_doc(d, query, cap=cap)
 
-    # 2) 링크·검색으로 따라갈 문서 고르기 → 읽기 (예산이 남는 동안 최대 2번)
+    # 2) 링크·검색으로 따라갈 문서 고르기 → 읽기 (예산이 남는 동안 최대 max_nav_steps 번)
     nav_reasons = []
-    for step in range(2):
+    for step in range(sc.get("max_nav_steps", 3)):
         if reader.left < 1500:
             break
         read_docs = set(reader.docs_read()) | {x.split("#")[0] for x in p["prior_pids"]}

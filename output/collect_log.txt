@@ -1,5 +1,345 @@
+seed      1 Apostille Convention                               12379자  누적 2,404 tok
+seed      2 Document legalization                               4989자  누적 3,297 tok
+seed      3 Hague Conference on Private International Law       7267자  누적 4,741 tok
   - 시드 없음: Consular authentication
+seed      4 Authentication (law)                                1852자  누적 5,094 tok
+seed      5 Certified copy                                      8123자  누적 6,655 tok
+seed      6 Notary public                                      45861자  누적 15,757 tok
+seed      7 Notary                                              4232자  누적 16,604 tok
+seed      8 Civil-law notary                                   54733자  누적 27,979 tok
+seed      9 Notarial act                                        7469자  누적 29,647 tok
   - 시드 없음: Notaries in the United States
   - 시드 없음: Electronic notary
+seed     10 ENotary                                             5810자  누적 30,773 tok
+seed     11 Jurat                                               4474자  누적 31,739 tok
+seed     12 Certified translation                              18697자  누적 35,114 tok
   - 시드 없음: Sworn translator
+seed     13 Legal translation                                   6330자  누적 36,246 tok
+seed     14 Translation                                        79674자  누적 52,007 tok
+seed     15 Affidavit                                          10936자  누적 54,213 tok
+seed     16 Statutory declaration                               4641자  누적 55,096 tok
+seed     17 Power of attorney                                  18701자  누적 58,867 tok
+seed     18 Birth certificate                                  46073자  누적 67,835 tok
+seed     19 Marriage certificate                               10965자  누적 69,927 tok
+seed     20 Death certificate                                   5375자  누적 70,915 tok
+seed     21 Vital record                                        3102자  누적 71,480 tok
+seed     22 Civil registration                                 29332자  누적 77,248 tok
+seed     23 Koseki                                             15619자  누적 80,305 tok
+seed     24 Hukou                                              42273자  누적 88,555 tok
   - 시드 없음: Resident registration (South Korea)
+seed     25 Police certificate                                  5395자  누적 89,521 tok
+seed     26 Criminal record                                    80367자  누적 104,579 tok
+seed     27 Diploma                                            15912자  누적 107,636 tok
+seed     28 Transcript (education)                              4498자  누적 108,462 tok
+seed     29 Certificate of incorporation                        2840자  누적 108,956 tok
+seed     30 Diplomatic mission                                 12010자  누적 111,229 tok
+seed     31 Consul (diplomacy)                                 12735자  누적 113,627 tok
+seed     32 Identity document                                   6405자  누적 114,809 tok
+seed     33 Travel document                                    57124자  누적 125,528 tok
+seed     34 Travel visa                                        56395자  누적 136,433 tok
+seed     35 Citizenship                                        31493자  누적 142,375 tok
+seed     36 Permanent residency                                18681자  누적 146,018 tok
+seed     37 Work permit                                        18120자  누적 149,610 tok
+seed     38 South Korean passport                              12579자  누적 152,194 tok
+seed     39 Japanese passport                                   6266자  누적 153,500 tok
+seed     40 Chinese passport                                   16599자  누적 156,906 tok
+seed     41 United States passport                             54016자  누적 167,959 tok
+seed     42 British passport                                   43336자  누적 176,645 tok
+seed     43 Indian passport                                    17943자  누적 180,266 tok
+seed     44 Philippine passport                                16492자  누적 183,739 tok
+seed     45 Vietnamese passport                                15670자  누적 186,999 tok
+seed     46 Resident registration number                        7747자  누적 188,754 tok
+seed     47 Resident Identity Card                             10808자  누적 190,912 tok
+seed     48 Aadhaar                                            47194자  누적 200,414 tok
+seed     49 Social Security number                             21127자  누적 204,634 tok
+seed     50 REAL ID Act                                        36953자  누적 211,803 tok
+seed     51 Driver's license                                   78135자  누적 227,768 tok
+seed     52 Medical certificate                                 6962자  누적 229,079 tok
+seed     53 Certificate of origin                              24348자  누적 233,504 tok
+seed     54 Articles of association                            15979자  누적 236,550 tok
+seed     55 Memorandum of association                           2886자  누적 237,101 tok
+seed     56 Vienna Convention on Consular Relations             6964자  누적 238,471 tok
+seed     57 Vienna Convention on Diplomatic Relations           5494자  누적 239,496 tok
+seed     58 Hague Service Convention                            6170자  누적 240,651 tok
+seed     59 Hague Adoption Convention                           5269자  누적 241,591 tok
+seed     60 Hague Convention on the Civil Aspects of Interna   30256자  누적 247,658 tok
+seed     61 Electronic signature                               21737자  누적 252,044 tok
+seed     62 EIDAS                                              11793자  누적 254,236 tok
+seed     63 Credential evaluation                               7313자  누적 255,454 tok
+seed     64 Educational accreditation                           3800자  누적 256,102 tok
+seed     65 Lisbon Recognition Convention                       4705자  누적 256,948 tok
+seed     66 Bologna Process                                    28872자  누적 262,729 tok
+
+[1단계] 후보 1200개 (모은 문서 2개 이상이 가리킴). 첫 문단으로 거르기…
+[1단계] 통과 539개
+hop1     67 Passport                                           45568자  누적 271,452 tok
+hop1     68 Non-citizen travel document                         3581자  누적 272,148 tok
+hop1     69 Interpol Travel Document                            3460자  누적 272,837 tok
+hop1     70 Polycarbonate e-passport                            1966자  누적 273,301 tok
+hop1     71 Refugee travel document                             2267자  누적 273,708 tok
+hop1     72 UNMIK Travel Document                               1924자  누적 274,110 tok
+hop1     73 United Nations laissez-passer                       4285자  누적 274,996 tok
+hop1     74 Vatican City and Holy See passports                 1892자  누적 275,377 tok
+hop1     75 European Union laissez-passer                       2550자  누적 275,904 tok
+hop1     76 Passports of the EFTA member states                18147자  누적 279,612 tok
+hop1     77 Passports of the European Union                    11770자  누적 281,999 tok
+hop1     78 National identification number                     87471자  누적 301,118 tok
+hop1     79 Consulate                                           6233자  누적 302,295 tok
+hop1     80 Deed                                               15735자  누적 305,515 tok
+hop1     81 Diplomat                                            9204자  누적 307,238 tok
+hop1     82 Migration diplomacy                                 4145자  누적 307,981 tok
+hop1     83 Consular assistance                                 1684자  누적 308,298 tok
+hop1     84 Diplomacy                                          36542자  누적 315,325 tok
+hop1     85 Hong Kong identity card                            14124자  누적 318,361 tok
+hop1     86 Exemplified copy                                    1917자  누적 318,740 tok
+hop1     87 Brazilian identity card                             7805자  누적 320,364 tok
+hop1     88 Authentication                                     20214자  누적 324,027 tok
+hop1     89 Diplomatic courier                                  4304자  누적 324,827 tok
+hop1     90 Panda diplomacy                                    24824자  누적 330,176 tok
+hop1     91 Schengen Area                                      79554자  누적 345,758 tok
+hop1     92 Wikisource                                         14345자  누적 348,696 tok
+hop1     93 King's Messenger                                    5869자  누적 349,916 tok
+hop1     94 National identification card (Taiwan)               6679자  누적 351,265 tok
+hop1     95 Fraud                                              16092자  누적 354,397 tok
+hop1     96 Green card                                         41098자  누적 362,623 tok
+hop1     97 Henley Passport Index                               9487자  누적 364,507 tok
+hop1     98 High commissioner (Commonwealth)                   12661자  누적 366,864 tok
+hop1     99 Military attaché                                    5233자  누적 367,873 tok
+hop1    100 Ministry of foreign affairs                        13798자  누적 370,639 tok
+hop1    101 National Registration Identity Card                16830자  누적 374,196 tok
+hop1    102 National identity card (Sri Lanka)                  5123자  누적 375,316 tok
+hop1    103 Unique Population Registry Code                     6494자  누적 376,697 tok
+hop1    104 Visa policy of the United States                   45306자  누적 385,923 tok
+hop1    105 Apostolic nunciature                                5523자  누적 387,119 tok
+hop1    106 Visa policy of Macau                                7696자  누적 388,624 tok
+hop1    107 Eschatocol                                          5842자  누적 389,969 tok
+hop1    108 Legal instrument                                    3870자  누적 390,675 tok
+hop1    109 Diplomatic immunity                                47879자  누적 400,035 tok
+hop1    110 Diplomatic service                                  1614자  누적 400,319 tok
+hop1    111 National Identity Card (Spain)                     13339자  누적 403,045 tok
+hop1    112 Handle System                                      16976자  누적 406,254 tok
+hop1    113 Immigration                                        45152자  누적 414,368 tok
+hop1    114 International law                                  66698자  누적 426,719 tok
+hop1    115 Persona non grata                                   2631자  누적 427,231 tok
+hop1    116 Solicitor                                          15273자  누적 430,246 tok
+hop1    117 Treaty                                             41794자  누적 438,099 tok
+hop1    118 United States Department of State                  35704자  누적 444,966 tok
+hop1    119 Visa Waiver Program                                31100자  누적 451,339 tok
+hop1    120 Chinese Travel Document                             2865자  누적 451,883 tok
+hop1    121 Diplomatic bag                                      4461자  누적 452,777 tok
+hop1    122 Diplomatic cable                                    7616자  누적 454,377 tok
+hop1    123 Indian Identity Certificate                         2190자  누적 454,822 tok
+hop1    124 Witness                                             8460자  누적 456,446 tok
+hop1    125 Ambassador                                         13425자  누적 458,965 tok
+hop1    126 Ambassador-at-large                                 5836자  누적 460,205 tok
+hop1    127 Chargé d'affaires                                   5588자  누적 461,318 tok
+hop1    128 Common Travel Area                                 31113자  누적 467,218 tok
+hop1    129 De facto embassy                                   34569자  누적 474,012 tok
+hop1    130 Digital signature                                  24887자  누적 478,848 tok
+hop1    131 Diplomatic law                                      4710자  누적 479,729 tok
+hop1    132 Full spectrum diplomacy                             8604자  누적 481,335 tok
+hop1    133 Household registration in Taiwan                    6301자  누적 482,503 tok
+hop1    134 Legation                                            2124자  누적 482,919 tok
+hop1    135 Nuncio                                              4016자  누적 483,704 tok
+hop1    136 PESEL                                               4307자  누적 484,732 tok
+hop1    137 Public diplomacy                                   12055자  누적 486,859 tok
+hop1    138 Science attaché                                     2157자  누적 487,227 tok
+hop1    139 Unique citizenship number                           3055자  누적 488,059 tok
+hop1    140 Visa policy of mainland China                      45605자  누적 497,232 tok
+hop1    141 Visa policy of Hong Kong                           19920자  누적 501,151 tok
+hop1    142 Visa requirements for Chinese citizens             17780자  누적 504,713 tok
+hop1    143 Visa requirements for Chinese citizens of Hong K   11046자  누적 506,930 tok
+hop1    144 Visa requirements for Chinese citizens of Macau     8018자  누적 508,538 tok
+hop1    145 Visa requirements for Japanese citizens             8720자  누적 510,292 tok
+hop1    146 Scrivener                                           4052자  누적 511,146 tok
+hop1    147 Agent-general                                      18010자  누적 516,275 tok
+hop1    148 Agricultural attaché                               13329자  누적 518,728 tok
+hop1    149 Appeasement                                        62634자  누적 531,550 tok
+hop1    150 Attaché                                             2520자  누적 532,038 tok
+hop1    151 Biometrics                                         37807자  누적 539,025 tok
+hop1    152 CNPJ                                                4855자  누적 540,120 tok
+hop1    153 Caviar diplomacy                                   21148자  누적 544,307 tok
+hop1    154 Checkbook diplomacy                                 1899자  누적 544,682 tok
+hop1    155 Commercial diplomacy                                3593자  누적 545,288 tok
+hop1    156 Compellence                                        16244자  누적 548,524 tok
+hop1    157 Cricket diplomacy                                   8303자  누적 550,139 tok
+hop1    158 Cultural attaché                                    2241자  누적 550,541 tok
+hop1    159 Diplomatic corps                                    3053자  누적 551,112 tok
+hop1    160 Diplomatic history                                 16023자  누적 554,262 tok
+hop1    161 Diplomatic illness                                  1841자  누적 554,659 tok
+hop1    162 Diplomatic rank                                    31496자  누적 560,993 tok
+hop1    163 Diplomatic uniform                                 25577자  누적 566,101 tok
+hop1    164 El Salvador                                        77006자  누적 582,334 tok
+hop1    165 Enhanced driver's license                           2982자  누적 582,957 tok
+hop1    166 Minister (diplomatic rank)                          1625자  누적 583,283 tok
+hop1    167 Exequatur                                           2550자  누적 583,779 tok
+hop1    168 Illegal immigration                                59796자  누적 595,472 tok
+hop1    169 International organization                         19231자  누적 598,886 tok
+hop1    170 Letter of credence                                  4671자  누적 599,771 tok
+hop1    171 Diplomatic correspondence                           3105자  누적 600,392 tok
+hop1    172 Literal translation                                 4460자  누적 601,303 tok
+hop1    173 National Identification and Registration Authori    3474자  누적 601,927 tok
+hop1    174 National Insurance number                           8005자  누적 603,647 tok
+hop1    175 National identity number (Norway)                  12649자  누적 606,138 tok
+hop1    176 Naturalization                                     32882자  누적 612,468 tok
+hop1    177 Oath                                               12889자  누적 615,359 tok
+hop1    178 Paradiplomacy                                      26146자  누적 620,221 tok
+hop1    179 Personal identification number (Denmark)            4170자  누적 621,133 tok
+hop1    180 Plenipotentiary                                    11729자  누적 623,794 tok
+hop1    181 Plenipotentiary Conference                          1643자  누적 624,111 tok
+hop1    182 Protocol (diplomacy)                                3289자  누적 624,724 tok
+hop1    183 Residence Permit for Hong Kong, Macao, and Taiwa    1839자  누적 625,061 tok
+hop1    184 Resident minister                                  31598자  누적 632,443 tok
+hop1    185 Signature                                          10341자  누적 634,429 tok
+hop1    186 Summit (meeting)                                    2358자  누적 634,961 tok
+hop1    187 Trade commissioner                                  1818자  누적 635,270 tok
+hop1    188 Western Hemisphere Travel Initiative                6383자  누적 636,549 tok
+hop1    189 Home Office                                        11890자  누적 638,825 tok
+hop1    190 Visa policy of North Korea                          1621자  누적 639,132 tok
+hop1    191 Visa requirements for South Korean citizens        10453자  누적 641,230 tok
+hop1    192 Bible translations                                 34697자  누적 648,598 tok
+hop1    193 Court clerk                                         3835자  누적 649,337 tok
+hop1    194 Cross-examination                                   3535자  누적 649,997 tok
+hop1    195 Diploma mill                                       38625자  누적 657,243 tok
+hop1    196 Diplomatic protection                               4609자  누적 658,087 tok
+hop1    197 General Register Office for England and Wales      22639자  누적 662,801 tok
+hop1    198 Hong Kong and Macao Travel Permit                   6944자  누적 664,336 tok
+hop1    199 Immigrant investor programs                        28804자  누적 670,053 tok
+hop1    200 Internal passport of Russia                        16246자  누적 673,315 tok
+hop1    201 Lawyer                                             44307자  누적 681,761 tok
+hop1    202 One-way Permit                                      2039자  누적 682,170 tok
+hop1    203 Passport stamp                                      3488자  누적 682,836 tok
+hop1    204 Subtitles                                          41543자  누적 691,004 tok
+hop1    205 Transcription (linguistics)                         7800자  누적 692,474 tok
+hop1    206 Visa policy of India                               18107자  누적 696,274 tok
+hop1    207 Visa policy of Israel                               9658자  누적 698,269 tok
+hop1    208 Visa policy of Japan                               12296자  누적 700,816 tok
+hop1    209 Visa requirements for British Nationals (Oversea   10721자  누적 702,964 tok
+hop1    210 Visa requirements for British citizens             13571자  누적 705,756 tok
+hop1    211 Visa requirements for Philippine citizens           8411자  누적 707,445 tok
+hop1    212 Act (document)                                      4884자  누적 708,486 tok
+hop1    213 Academic degree                                   109763자  누적 730,394 tok
+hop1    214 Entry into force                                    9024자  누적 732,233 tok
+hop1    215 Commonwealth citizen                                8836자  누적 733,798 tok
+hop1    216 Company                                             8417자  누적 735,458 tok
+hop1    217 Computer-assisted translation                       8770자  누적 737,016 tok
+hop1    218 Court                                               9447자  누적 738,872 tok
+hop1    219 Criminal law                                       17115자  누적 742,272 tok
+hop1    220 Cross-strait relations                             62165자  누적 754,831 tok
+hop1    221 Cultural translation                                7272자  누적 756,170 tok
+hop1    222 Driving licence in India                            9244자  누적 758,080 tok
+hop1    223 Dubbing                                            47007자  누적 767,758 tok
+hop1    224 Dynamic and formal equivalence                      6509자  누적 769,126 tok
+hop1    225 Evidence (law)                                     19232자  누적 772,882 tok
+hop1    226 Fan translation                                     7648자  누적 774,260 tok
+hop1    227 Fan translation of video games                     12210자  누적 776,727 tok
+hop1    228 Fandub                                              2884자  누적 777,300 tok
+hop1    229 Fansub                                             27454자  누적 782,864 tok
+hop1    230 Foster care                                        43602자  누적 791,402 tok
+hop1    231 Mainland Travel Permit for Hong Kong and Macao R   15573자  누적 794,397 tok
+hop1    232 Homophonic translation                              3166자  누적 795,150 tok
+hop1    233 Immigrant surveillance                             14564자  누적 797,874 tok
+hop1    234 Immigration and Nationality Act of 1952            20964자  누적 802,114 tok
+hop1    235 International Commission on Civil Status            2146자  누적 802,571 tok
+hop1    236 Internationalization and localization              15388자  누적 805,346 tok
+hop1    237 Journalistic translation                            2653자  누적 805,893 tok
+hop1    238 Language interpretation                            34859자  누적 812,172 tok
+hop1    239 Language localisation                              11234자  누적 814,213 tok
+hop1    240 Linguistic validation                               4024자  누적 814,930 tok
+hop1    241 Mainland Travel Permit for Taiwan Resident          9322자  누적 816,809 tok
+hop1    242 Marriage license                                   12543자  누적 819,265 tok
+hop1    243 Multiple citizenship                               93263자  누적 836,905 tok
+hop1    244 National Translation Mission                       25774자  누적 843,346 tok
+hop1    245 Northern Ireland                                   81284자  누적 860,041 tok
+hop1    246 Overseas Citizenship of India                      25570자  누적 865,243 tok
+hop1    247 Postediting                                         8350자  누적 866,779 tok
+hop1    248 Quran translations                                 32861자  누적 874,438 tok
+hop1    249 Relevance (law)                                    10365자  누적 876,455 tok
+hop1    250 Scanlation                                         19058자  누적 880,213 tok
+hop1    251 Skopos theory                                      29124자  누적 885,868 tok
+hop1    252 Source text                                         5243자  누적 886,825 tok
+hop1    253 Sovereign state                                    21599자  누적 890,948 tok
+hop1    254 Supreme Court of the United States                 97990자  누적 910,678 tok
+hop1    255 Taiwanese nationality law                          13412자  누적 913,177 tok
+hop1    256 Tirukkural translations                             5724자  누적 914,404 tok
+hop1    257 Translation criticism                               3834자  누적 915,063 tok
+hop1    258 Translation management system                       6732자  누적 916,189 tok
+hop1    259 Translation studies                                25967자  누적 921,116 tok
+hop1    260 Transliteration                                     5007자  누적 922,433 tok
+hop1    261 Untranslatability                                  28161자  누적 928,652 tok
+hop1    262 Video game localization                            23806자  누적 933,166 tok
+hop1    263 Visa fraud                                          1663자  누적 933,504 tok
+hop1    264 Website localization                                6512자  누적 934,630 tok
+hop1    265 Will and testament                                 23599자  누적 939,489 tok
+hop1    266 The Passport Index                                  4107자  누적 940,337 tok
+hop1    267 Burden of proof (law)                              36188자  누적 947,472 tok
+hop1    268 Burial                                             52822자  누적 958,167 tok
+hop1    269 Chancery (diplomacy)                                9014자  누적 959,925 tok
+hop1    270 Accredited Social Health Activist                   4026자  누적 960,799 tok
+hop1    271 Advanced electronic signature                       4063자  누적 961,554 tok
+hop1    272 Africa–China relations                             54568자  누적 972,358 tok
+hop1    273 Airline                                            58327자  누적 984,170 tok
+hop1    274 All-China Federation of Industry and Commerce       3359자  누적 984,823 tok
+hop1    275 American Association of Motor Vehicle Administra    5328자  누적 985,814 tok
+hop1    276 Anchor baby                                        10576자  누적 987,922 tok
+hop1    277 Pradhan Mantri Kisan Samman Nidhi                   1778자  누적 988,306 tok
+hop1    278 Associate degree                                   18527자  누적 991,864 tok
+hop1    279 Atal Pension Yojana                                 3904자  누적 992,757 tok
+hop1    280 Atomic tourism                                      8318자  누적 994,516 tok
+hop1    281 BRICS                                              43845자  누적 1,003,482 tok
+hop1    282 Negotiable instrument                              19567자  누적 1,007,552 tok
+hop1    283 British National (Overseas)                        25722자  누적 1,012,473 tok
+hop1    284 British protected person                            8832자  누적 1,014,122 tok
+hop1    285 Bureau of Consular Affairs                          4743자  누적 1,015,024 tok
+hop1    286 Byzantine Empire                                   59537자  누적 1,027,420 tok
+hop1    287 CAdES (computing)                                   4903자  누적 1,028,436 tok
+hop1    288 Cadaver                                            28374자  누적 1,034,091 tok
+hop1    289 Calligraphy                                        24406자  누적 1,039,246 tok
+hop1    290 Central Committee of the Chinese Communist Party   23003자  누적 1,043,706 tok
+hop1    291 Central Comprehensively Deepening Reforms Commis    6780자  누적 1,045,080 tok
+hop1    292 Central Foreign Affairs Commission                  6711자  누적 1,046,418 tok
+hop1    293 Chairman of the National Committee of the Chines    2729자  누적 1,046,936 tok
+hop1    294 China National Democratic Construction Associati    3526자  누적 1,047,662 tok
+hop1    295 China Zhi Gong Party                                4474자  누적 1,048,581 tok
+
+[2단계] 후보 1200개 (모은 문서 2개 이상이 가리킴). 첫 문단으로 거르기…
+[2단계] 통과 529개
+hop2    296 Visa policies of British Overseas Territories      16876자  누적 1,052,186 tok
+hop2    297 Visa history of Russia                             61335자  누적 1,065,079 tok
+hop2    298 Visa policies of Overseas France                    4534자  누적 1,066,037 tok
+hop2    299 Cold War                                          102714자  누적 1,086,674 tok
+hop2    300 Chinese law                                        29393자  누적 1,092,458 tok
+hop2    301 International relations                            43554자  누적 1,100,522 tok
+hop2    302 Timatic                                             1751자  누적 1,100,844 tok
+hop2    303 Ministry of Foreign Affairs (China)                13121자  누적 1,103,378 tok
+hop2    304 European Commission                                34831자  누적 1,109,995 tok
+hop2    305 United front (China)                               11250자  누적 1,112,242 tok
+hop2    306 Judge                                              31213자  누적 1,118,967 tok
+hop2    307 National identity cards in the European Economic   18322자  누적 1,122,572 tok
+hop2    308 Trans-Tasman Travel Arrangement                    18736자  누적 1,126,070 tok
+hop2    309 Chinese People's Political Consultative Conferen   14053자  누적 1,128,737 tok
+hop2    310 Constitution                                       52371자  누적 1,139,199 tok
+hop2    311 Cross-Strait Service Trade Agreement                9427자  누적 1,140,986 tok
+hop2    312 Democratic parties (China)                          7194자  누적 1,142,331 tok
+hop2    313 Jury                                               85362자  누적 1,159,679 tok
+hop2    314 Letters patent                                      5879자  누적 1,160,848 tok
+hop2    315 National Committee of the Chinese People's Polit    6011자  누적 1,161,964 tok
+hop2    316 Repatriation                                       16263자  누적 1,165,197 tok
+hop2    317 Secretariat of the Chinese Communist Party          6274자  누적 1,166,496 tok
+hop2    318 Hong Kong Document of Identity for Visa Purposes    3205자  누적 1,167,149 tok
+hop2    319 Jurisprudence                                      27569자  누적 1,172,550 tok
+hop2    320 China–Russia relations                             57361자  누적 1,184,306 tok
+hop2    321 Chinese Peasants' and Workers' Democratic Party     9700자  누적 1,186,309 tok
+hop2    322 Congress of Vienna                                 29222자  누적 1,192,383 tok
+hop2    323 Electronic System for Travel Authorization          8876자  누적 1,194,224 tok
+hop2    324 Foreign relations of China                         89094자  누적 1,211,686 tok
+
+===== 코퍼스 요약 =====
+문서 324건 {'hop1': 229, 'hop2': 29, 'seed': 66}  · 이번 실행 API 요청 68회
+걸러 낸 후보 1974개 {'너무 짧음': 20, '핵심 낱말 없음': 947, '나라·지역·인물 문서': 353, '같은 꼴 제목 상한': 654}
+핵심 문서 170건 2,915,560자 578,757 tok / 나머지는 주변 문서
+링크 7884개 (코퍼스 안 문서끼리)
+총 글자 수 6,086,463자 / 총 토큰 1,211,686 (o200k_base)
+컨텍스트 윈도우 1,050,000 토큰 → 1.15배, 넘는가: True
+들어오는 링크 0개 문서 2건(배정이 유일한 경로): ['d052', 'd053']
+들어오고 나가는 링크 모두 0개 문서 1건: ['d053']

@@ -174,8 +174,10 @@ with tabs[2]:
         for doc, quote, pos in good:
             hit = next((p for p in pids if p.startswith(doc + "#") and C.norm(quote) in C.norm(ix.by_pid[p]["text"])), None)
             read = any(p.startswith(doc + "#") for p in pids)
+            verdict = C.check_quote(doc, quote, pids) if read else "unread"
             sent = md[max(0, md.rfind("\n", 0, pos)): pos].strip()[-120:]
-            rows.append({"판정": "✓ 원문 확인" if hit else ("✗ 읽지 않은 문서" if not read else "✗ 문구 없음"),
+            rows.append({"판정": {"exact": "✓ 원문 그대로", "elided": "△ 말줄임(단어는 원문에 있음)",
+                                  "none": "✗ 원문에 없음", "unread": "✗ 읽지 않은 문서"}[verdict],
                          "문장(끝부분)": C.CITE.sub("", sent)[-80:], "문서": f"{doc} {title_of(doc)}",
                          "인용 문구": quote, "찾은 문단": hit or ""})
         st.subheader(name)
@@ -196,7 +198,7 @@ with tabs[3]:
         a, b, c = st.columns(3)
         a.metric("코디네이터가 본 글자", f"{m['coordinator_seen_chars']:,}자", "문서 목록 + 원고만", delta_color="off")
         b.metric("리서처들이 본 글자(합)", f"{m['researchers_seen_chars_total']:,}자", f"한 리서처 최대 {m['researchers_seen_chars_max']:,}자", delta_color="off")
-        c.metric("원문이 위로 샌 흔적", m["alarm_source_leak"], "12단어 연속 일치 수(0이어야)", delta_color="off")
+        c.metric("원문이 위로 샌 흔적", m["alarm_source_leak"], "20단어 연속 일치 수(0이어야)", delta_color="off")
         t0 = min(x["t_start"] for x in r["attempts"])
         tl = pd.DataFrame([{"절": f"{x['sec']}·{x['round']}바퀴", "시작(초)": round(x["t_start"] - t0, 1),
                             "끝(초)": round(x["t_end"] - t0, 1)} for x in r["attempts"]])

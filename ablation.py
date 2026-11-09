@@ -23,7 +23,7 @@ from metrics import METRICS, compute
 SWITCHES = ["use_planner_assignment", "tell_other_zones", "use_gap_check", "keep_better_draft"]
 CONDITIONS = ["base"] + [f"no_{s}" for s in SWITCHES] + ["single"]
 DEFAULT_Q = ["q2", "q3", "q5", "q6"]       # 한 건짜리 1 · 흩어진 것 2 · 따라가기 1
-SHOW = ["valid_citations", "valid_rate", "cited_docs", "read_use", "core_read_ratio", "section_overlap",
+SHOW = ["valid_citations", "valid_rate", "quote_elided", "cited_docs", "read_use", "core_read_ratio", "section_overlap",
         "cite_density", "budget_use", "gaps_left", "body_chars",
         "alarm_fabricated_quotes", "alarm_unread_citations", "alarm_malformed_citations",
         "alarm_draft_regression", "alarm_source_leak", "alarm_over_budget",

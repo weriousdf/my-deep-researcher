@@ -13,7 +13,8 @@
     "target_window_multiple": 1.15,
     "max_docs": 600,
     "min_chars": 1500,
-    "candidate_pool": 1200
+    "candidate_pool": 1200,
+    "family_cap": 8
   },
   "sections": {
     "n_sections_max": 5,
@@ -27,7 +28,8 @@
     "gap_min_valid_citations": 3,
     "gap_min_draft_chars": 800,
     "keep_new_if_len_ratio": 0.7,
-    "note": "총 읽기 예산(원문 글자 수)은 대조군과 같다. 1바퀴에 (1-reserve)를 절 수로 나눠 주고, 남긴 reserve 로 부족 신고 절만 다시 보낸다."
+    "note": "총 읽기 예산(원문 글자 수)은 대조군과 같다. 1바퀴에 (1-reserve)를 절 수로 나눠 주고, 남긴 reserve 로 부족 신고 절만 다시 보낸다.",
+    "max_nav_steps": 3
   },
   "roles": [
     {

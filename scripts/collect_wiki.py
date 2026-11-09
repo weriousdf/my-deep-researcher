@@ -9,10 +9,12 @@
    - "~는 나라/주/섬이다", "~는 회원국 N개의 연합이다", 인물 생몰년 같은 첫 문단은 뺀다.
      (1차 수집에서 Oregon·Cicero·Argentina 같은 문서가 섞여 들어와 이 규칙을 넣었다. REPORT.md 참고)
 4. 총 토큰 수가 컨텍스트 윈도우 × 여유 배수를 넘을 때까지 본문을 받는다. 모자라면 2~3을 한 바퀴 더(최대 3단계).
+   이때 제목 끝 낱말이나 앞부분이 같은 문서(○○ passport, Visa policy of ○○ 등)는 family_cap 건까지만 받는다
+   (2차 수집에서 나라별 여권 문서가 링크로 줄줄이 딸려 와 넣은 규칙).
 5. 코퍼스 안 문서끼리의 링크만 남겨 links 로 저장하고, 들어오는 링크 0개 문서 수를 출력한다.
 
 예의
-- 요청은 한 번에 하나씩, 사이에 6초 쉰다. 429·403이 오면 그 자리에서 멈춘다(재시도하지 않음).
+- 요청은 한 번에 하나씩, 사이에 6초 쉰다. 429·403이나 연결 오류가 나면 그 자리에서 멈추고 받은 데까지 저장한다(재시도하지 않음).
   받은 응답은 data/_cache 에 저장하므로, 시간을 두고 다시 돌리면 받은 데서부터 이어 받는다.
 - User-Agent 는 일반 이름(이메일 없음).
 
@@ -101,7 +103,10 @@ def call(params):
     if wait > 0:
         time.sleep(wait)
     params = {**params, "format": "json", "formatversion": "2"}
-    r = requests.get(API, params=params, headers={"User-Agent": UA}, timeout=30)
+    try:
+        r = requests.get(API, params=params, headers={"User-Agent": UA}, timeout=30)
+    except requests.exceptions.RequestException as e:
+        raise Stop(f"연결 오류({type(e).__name__})")
     _last[0] = time.time()
     _calls[0] += 1
     if r.status_code in (403, 429):
@@ -191,6 +196,22 @@ def clean(text):
     return text.strip()
 
 
+def families(title):
+    """'같은 꼴 문서' 무리 열쇠들. 한 무리가 코퍼스를 독차지하지 않게 상한을 둔다.
+    - 끝 낱말: Yemeni passport·Polish passport → "*passport", Cricket diplomacy → "*diplomacy"
+    - 앞부분: Visa policy of Gabon·Visa policy of India → "visa policy*", Driving licence in X → "driving licence*"
+    (끝 낱말만 보다가 'Visa policy of ○○'가 줄줄이 들어와 앞부분 열쇠를 더했다)"""
+    t = re.sub(r"\s*\(.*?\)\s*", " ", title).strip().lower()
+    keys = set()
+    w = t.split()
+    if len(w) >= 2:
+        keys.add("*" + w[-1])
+    m = re.match(r"^(.+?) (of|for|in) ", t)
+    if m:
+        keys.add(m.group(1) + "*")
+    return keys
+
+
 def judge(intro):
     """첫 문단으로 주제 문서인지 가린다. (통과 여부, 핵심 낱말 수, 이유)"""
     head = (intro or "")[:800]
@@ -277,6 +298,11 @@ def main():
             for s, c in scored:
                 if total_tok >= target_tokens or len(docs) >= max_docs:
                     break
+                fams = families(alias.get(c, c))
+                full = [f for f in fams if sum(1 for d in docs if f in families(d["title"])) >= ccfg["family_cap"]]
+                if full:
+                    rejected[c] = f"같은 꼴 제목 상한({full[0]})"
+                    continue
                 p = fetch_page(c, offline=args.dry)
                 if not p or p["title"] in seen:
                     continue
